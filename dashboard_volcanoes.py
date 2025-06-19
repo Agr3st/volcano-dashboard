@@ -42,7 +42,6 @@ elif vei_filter_mode == "Konkretna wartość" and selected_vei is not None:
 
 # aktywne erupcje - po wszystkich wartościach
 active_eruptions = filter_by_country(active_eruptions, selected_country)
-#active_eruptions = filter_by_wvar(active_eruptions, only_ongoing)
 
 # Mapa
 st.title("🌍 Interaktywna Mapa Erupcji Wulkanów")
