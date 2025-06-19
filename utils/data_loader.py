@@ -7,7 +7,7 @@ from datetime import datetime
 def get_last_updated_date(file_path="data/volcano_activity.csv"):
     try:
         timestamp = os.path.getmtime(file_path)
-        return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
+        return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
     except (Exception, ):
         return "Brak informacji"
 
