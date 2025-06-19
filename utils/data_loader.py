@@ -1,6 +1,15 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import os
+from datetime import datetime
+
+def get_last_updated_date(file_path="data/volcano_activity.csv"):
+    try:
+        timestamp = os.path.getmtime(file_path)
+        return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
+    except (Exception, ):
+        return "Brak informacji"
 
 @st.cache_data
 def load_data():

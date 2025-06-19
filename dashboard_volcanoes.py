@@ -1,6 +1,6 @@
 # dashboard_volcanoes.py
 import streamlit as st
-from utils.data_loader import load_data
+from utils.data_loader import load_data, get_last_updated_date
 from utils.filters import *
 from utils.map_utils import generate_map
 import plotly.express as px
@@ -81,3 +81,6 @@ Oznacza, że wulkan wykazuje bieżącą aktywność, taką jak emisja popiołu, 
 <small>Dane z katalogu erupcji historycznych</small>
 </div>
 """, unsafe_allow_html=True)
+last_updated = get_last_updated_date()
+st.sidebar.markdown("---")
+st.sidebar.markdown(f"🕒 **Ostatnia aktualizacja danych:** {last_updated}")
