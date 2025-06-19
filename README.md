@@ -33,7 +33,7 @@ Aplikacja: https://volcano-dashboard.streamlit.app/
 │   ├── volcanoes_name_country.csv
 │   └── volcano_activity.csv     # Dane o aktywnej erupcji (aktualizowane scraperem)
 ├── .github/workflows/
-│   └── scraper_update.yml       # Workflow GitHub Actions aktualizujący dane
+│   └── update_data.yml       # Workflow GitHub Actions aktualizujący dane
 └── README.md                    # Ten plik
 
 ```
