@@ -14,7 +14,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 table = soup.find('div', class_='TableSearchResults').find('table')
 
 # lista nagłówków
-headers = ['Volcano', 'Country', 'Eruption Start Date', 'Last Known Activity']
+headers = ['Volcano', 'Country', 'Eruption Start Date', 'Last Known Activity', 'WVAR']
 
 # lista do przechowywania danych
 rows = []
@@ -31,7 +31,8 @@ for tr in table.find_all('tr'):
         country = tds[1].get_text(strip=True)
         eruption_start = tds[2].get_text(strip=True)
         last_activity = tds[3].get_text(strip=True)
-        rows.append([volcano, country, eruption_start, last_activity])
+        wvar = tds[4].get_text(strip=True)
+        rows.append([volcano, country, eruption_start, last_activity, wvar])
 
 # Zapisz do CSV
 with open('../data/volcano_activity.csv', 'w', newline='', encoding='utf-8') as f:
