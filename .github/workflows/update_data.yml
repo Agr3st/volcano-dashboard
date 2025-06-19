@@ -2,7 +2,7 @@ name: Update Volcano Activity CSV
 
 on:
   schedule:
-    - cron: '00 17 * * *'
+    - cron: '36 17 * * *'
   workflow_dispatch:
 
 jobs:
