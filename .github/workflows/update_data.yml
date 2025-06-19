@@ -2,7 +2,7 @@ name: Update Volcano Activity CSV
 
 on:
   schedule:
-    - cron: '36 17 * * *'
+    - cron: '00 18 * * *'
   workflow_dispatch:
 
 jobs:
@@ -34,3 +34,5 @@ jobs:
           git add data/volcano_activity.csv
           git diff --cached --quiet || git commit -m "Auto-update volcano_activity.csv"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
