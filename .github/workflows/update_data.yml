@@ -2,8 +2,8 @@ name: Update Volcano Activity CSV
 
 on:
   schedule:
-    - cron: '00 17 * * *'  # codziennie o 6:00 UTC
-  workflow_dispatch:      # pozwala też uruchomić ręcznie z GitHub UI
+    - cron: '00 17 * * *'
+  workflow_dispatch:
 
 jobs:
   update-data:
