@@ -11,7 +11,7 @@ st.set_page_config(page_title="🌋 Dashboard Wulkanów", layout="wide")
 # Wczytywanie danych
 @st.cache_data
 def load_data():
-    eruptions_1 = pd.read_csv("raw_data.csv", usecols=[
+    eruptions_1 = pd.read_csv("../data/raw_data.csv", usecols=[
         "Volcano Name", "Eruption Category", "VEI", "Start Year", "End Year", "Latitude", "Longitude", "Evidence Method (dating)"
     ], skiprows=1)
 
@@ -20,9 +20,9 @@ def load_data():
     eruptions_1.fillna(value={"Evidence Type": "Uncertain", "Evidence Method": "Unspecified"}, inplace=True)
     eruptions_1 = eruptions_1[eruptions_1["Eruption Category"] != "Discredited Eruption"]
 
-    eruptions_2 = pd.read_csv("volcanoes_name_country.csv", sep=";", usecols=["Volcano Name", "Country"], encoding="utf-8-sig")
+    eruptions_2 = pd.read_csv("../data/volcanoes_name_country.csv", sep=";", usecols=["Volcano Name", "Country"], encoding="utf-8-sig")
 
-    eruptions_3 = pd.read_csv("volcano_activity.csv", usecols=["Volcano", "Start Date", "Last Known Activity", "Ongoing Eruption"])
+    eruptions_3 = pd.read_csv("../data/volcano_activity.csv", usecols=["Volcano", "Start Date", "Last Known Activity", "Ongoing Eruption"])
     eruptions_3 = eruptions_3.rename(columns={"Volcano": "Volcano Name"})
 
     # Łączenie współrzędnych
