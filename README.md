@@ -45,7 +45,7 @@ Aplikacja: https://volcano-dashboard.streamlit.app/
 1. Sklonuj repozytorium:
 ```
 
-git clone https://github.com/TWOJE_UZYTKOWNIK/volcano-dashboard.git
+git clone https://github.com/Agr3st/volcano-dashboard.git
 cd volcano-dashboard
 
 ```
