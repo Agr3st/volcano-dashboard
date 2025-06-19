@@ -42,10 +42,10 @@ elif vei_filter_mode == "Konkretna wartość" and selected_vei is not None:
 
 # aktywne erupcje - po wszystkich wartościach
 active_eruptions = filter_by_country(active_eruptions, selected_country)
-active_eruptions = filter_by_wvar(active_eruptions, only_ongoing)
+#active_eruptions = filter_by_wvar(active_eruptions, only_ongoing)
 
 # Mapa
-st.title("🌍 Interaktywna Mapa Wulkanów")
+st.title("🌍 Interaktywna Mapa Erupcji Wulkanów")
 
 if len(eruptions) + len(active_eruptions) > 700:
     st.warning("Zbyt wiele punktów do wyświetlenia. Zawęż filtry, aby poprawić wydajność.")
@@ -65,3 +65,20 @@ if not eruptions.empty:
     st.markdown(f"**Najbardziej eksplozywna erupcja:** {top_vei['Volcano Name']} ({top_vei['VEI']}) – {top_vei['Country']}")
 else:
     st.info("Brak danych dla wybranych filtrów.")
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🗺️ Legenda mapy")
+
+st.sidebar.markdown("""
+<div style='line-height: 1.6'>
+<span style='display:inline-block; width:12px; height:12px; background-color:orange; border-radius:50%; margin-right:8px;'></span> <b>Trwająca erupcja</b><br>
+<small>Wulkan z listy trwających erupcji na podstawie danych ze strony: <a href="https://volcano.si.edu/gvp_currenteruptions.cfm">volcano.si.edu</a></small><br><br>
+
+<span style='display:inline-block; width:12px; height:12px; background-color:red; border-radius:50%; margin-right:8px;'></span> <b>Wulkan z WVAR</b><br>
+<small>Wulkan z trwającą erupcją, który został ujęty w najnowszym cotygodniowym raporcie aktywności wulkanicznej (WVAR) publikowanym przez GVP.
+Oznacza, że wulkan wykazuje bieżącą aktywność, taką jak emisja popiołu, lawy, dymu lub inne zjawiska zgłoszone w ostatnich dniach.</small><br><br>
+
+<span style='display:inline-block; width:12px; height:12px; background-color:gray; border-radius:50%; margin-right:8px;'></span> <b>Historyczna erupcja</b><br>
+<small>Dane z katalogu erupcji historycznych</small>
+</div>
+""", unsafe_allow_html=True)
