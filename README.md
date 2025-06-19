@@ -69,8 +69,3 @@ streamlit run dashboard_volcanoes.py
 ## Automatyczna aktualizacja danych
 
 Projekt zawiera GitHub Actions, który co określony czas uruchamia scraper `scrape_current_eruptions.py`, aktualizuje plik `data/volcano_activity.csv` i robi commit do repozytorium (jeśli w pliku zajdą zmiany).
-
-
-
-Jeśli chcesz, mogę pomóc też z generowaniem pliku `requirements.txt` albo innymi dokumentami.
-Chcesz?
