@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import os
 
 url = 'https://volcano.si.edu/gvp_currenteruptions.cfm'
 
@@ -35,6 +36,7 @@ for tr in table.find_all('tr'):
         rows.append([volcano, country, eruption_start, last_activity, wvar])
 
 # Zapisz do CSV
+os.makedirs('../data', exist_ok=True)
 with open('../data/volcano_activity.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(headers)
