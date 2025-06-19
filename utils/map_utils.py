@@ -15,7 +15,10 @@ def generate_map(eruptions, active_eruptions, only_ongoing):
                     color='gray',
                     fill=True,
                     fill_opacity=0.5,
-                    popup=f"<b>{row['Volcano Name']}</b><br>{row['Years of activity + VEI']}"
+                    popup=folium.Popup(
+                        f"<b>{row['Volcano Name']}</b><br>{row['Years of activity + VEI']}",
+                        max_width=800
+                    )
                 ).add_to(m)
 
     for _, row in active_eruptions.iterrows():
@@ -26,11 +29,12 @@ def generate_map(eruptions, active_eruptions, only_ongoing):
                 color='darkred' if row["WVAR"] == "Yes" else 'orange',
                 fill=True,
                 fill_opacity=0.8,
-                popup=(
+                popup=folium.Popup(
                     f"<b>{row['Volcano Name']}</b><br>"
-                    f"Eruption start Date: {row['Eruption Start Date']}<br>"
-                    f"Last Known Activity: {row['Last Known Activity']}<br>"
-                    f"WVAR: {row['WVAR']}"
+                    f"<b>Eruption start Date</b>: {row['Eruption Start Date']}<br>"
+                    f"<b>Last Known Activity</b>: {row['Last Known Activity']}<br>"
+                    f"<b>WVAR</b>: {row['WVAR']}",
+                    max_width=800
                 )
             ).add_to(cluster)
 
